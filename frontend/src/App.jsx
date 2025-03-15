@@ -6,11 +6,12 @@ import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
 import ProfilePage from './pages/ProfilePage'
 import SettingsPage from './pages/SettingsPage' 
-import SignupPage from './pages/SignupPage'
+import SignupPage from './pages/SignUpPage'
 import {Loader } from "lucide-react";
 import { useEffect } from 'react';
 import { useAuthStore } from './store/useAuthStore';
-
+import { Navigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast'
 
 const App = ()=> {
   const {authUser, checkAuth,isCheckingAuth} = useAuthStore();
@@ -39,7 +40,10 @@ if(isCheckingAuth && !authUser){
         <Route path="/settings" element={<SettingsPage />} /> 
         <Route path="/signup" element={!authUser?<SignupPage />:<Navigate to="/login"/>} />
         </Routes> 
+
+        <Toaster />
     </div>
+
   );  
 };
 
