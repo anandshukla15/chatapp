@@ -10,6 +10,8 @@ const PREVIEW_MESSAGES=[
 
 const SettingsPage = () => {
   const {theme,setTheme} = useThemeStore();
+  
+  console.log("printing",theme.charAt(0).toUpperCase() + theme.slice(1))
 
   return (
     <div className="h-screen container mx-auto px-4 pt-20 max-w-5xl">
@@ -25,7 +27,7 @@ const SettingsPage = () => {
               key={t}
               className={`
                 group flex flex-col items-center gap-1.5 p-2 rounded-lg transition-colors z-40
-                ${theme === t ? "bg-base-200" : "hover:bg-base-200/50"}
+                ${theme === t ? "bg-base-200" : "hover:bg-base-200"}
               `}
               onClick={() => setTheme(t)}
             >

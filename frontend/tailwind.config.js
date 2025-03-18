@@ -14,8 +14,9 @@ export default {
     themes: [
       "light",
       "dark",
-      "cupcake",
+      "aqua",
       "bumblebee",
+      "cupcake",
       "emerald",
       "corporate",
       "synthwave",
@@ -25,7 +26,6 @@ export default {
       "halloween",
       "garden",
       "forest",
-      "aqua",
       "lofi",
       "pastel",
       "fantasy",
@@ -47,3 +47,5 @@ export default {
     ],
   },
 }
+
+
