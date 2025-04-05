@@ -23,7 +23,7 @@ const SettingsPage = () => {
 
         <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2">
           {THEMES.map((t) => (
-            <button
+            <button 
               key={t}
               className={`
                 group flex flex-col items-center gap-1.5 p-2 rounded-lg transition-colors z-40
