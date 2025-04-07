@@ -23,9 +23,17 @@ export const useChatStore = create((set, get) => ({
   },
 
   getMessages: async (userId) => {
+
+    console.log("🔍 getMessages called with userId:", userId);
+    if (!userId) {
+      console.warn("⛔ Invalid userId passed to getMessages");
+      return;
+    }
+
     set({ isMessagesLoading: true });
     try {
       const res = await axiosInstance.get(`/messages/${userId}`);
+      console.log("Messages:", res.data);
       set({ messages: res.data });
     } catch (error) {
       toast.error(error.response.data.message);

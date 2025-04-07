@@ -25,6 +25,7 @@ try{
          { senderId: userToChatId, receiverId: myId },
         ],
     });
+    res.send(messages);
 }catch(error){
     console.error("Error in getMessages controller: ", error.message);
     res.status(500).json({error: "Internal Server Error"});
