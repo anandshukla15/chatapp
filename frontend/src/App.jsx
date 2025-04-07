@@ -21,14 +21,14 @@ const App = () => {
 
 
   const { theme } = useThemeStore();
-  console.log({ theme });
+  //console.log({ theme });
 
   useEffect(() => {
     checkAuth();
   }
     , [checkAuth]);
     
-  console.log({ isCheckingAuth, authUser });
+  console.log({ authUser });
 
   if (isCheckingAuth && !authUser) {
     return (
