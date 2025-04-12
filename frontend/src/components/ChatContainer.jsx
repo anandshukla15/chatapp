@@ -10,7 +10,7 @@ import { useAuthStore } from '../store/useAuthStore';
 
 const ChatContainer = () => {
 
-const { selectedUser,messages,getMessages,isMessagesLoading } = useChatStore();
+const { selectedUser,messages,getMessages,isMessagesLoading,subscribeToMessages,unsubscribeFromMessages } = useChatStore();
 
 const { authUser } = useAuthStore();
 
@@ -19,8 +19,10 @@ useEffect(() => {
   if (selectedUser?._id) {
     console.log("Fetching messages for:", messages);
     getMessages(selectedUser._id);
+    subscribeToMessages();
+return()=>unsubscribeFromMessages();
   }
-}, [selectedUser._id,getMessages]);
+}, [selectedUser._id,getMessages,subscribeToMessages,unsubscribeFromMessages]);
 
 if(isMessagesLoading){
   return ( <div className='flex-1 flex flex-col overflow-auto'>
