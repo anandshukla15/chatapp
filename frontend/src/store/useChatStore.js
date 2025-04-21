@@ -59,7 +59,10 @@ subscribeToMessages: () => {
       return;
     }
     const socket  = useAuthStore.getState().socket;
-    socket.on("newMesaaages", (newMessage) => {
+    socket.on("newMessage", (newMessage) => {
+
+      const isMessageSentFromSelectedUser = newMessage.senderId === selectedUser._id;
+      if (!isMessageSentFromSelectedUser) return;
       
       set({ messages: [...get().messages, newMessage] });
     });
@@ -67,7 +70,7 @@ subscribeToMessages: () => {
 
 unsubscribeFromMessages: () => {
     const socket  = useAuthStore.getState().socket;
-    socket.off("newMessages");
+    socket.off("newMessage");
 },
 
     setSelectedUser: (selectedUser) => {
