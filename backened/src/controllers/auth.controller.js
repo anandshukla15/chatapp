@@ -1,6 +1,7 @@
 import e from "express";
 import User from "../models/user.model.js";
-import bcrypt from "bcrypt";
+import bcrypt from 'bcryptjs'; // or const bcrypt = require('bcryptjs');
+
 import cloudinary from "../lib/cloudinary.js";
 import { generateToken } from "../lib/utils.js";
 
